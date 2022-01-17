@@ -1,9 +1,3 @@
-/*
-Ivan Costa de Sousa
-N.USP; 9292754
-P1
-*/
-
 /* Comando para criar e entrar no banco de dados*/
 CREATE DATABASE bdcovid;
 \c bdcovid
@@ -74,19 +68,19 @@ INSERT INTO HOSPITAIS VALUES(2,'HSL', 'HOSPITAL SÍRIO-LIBANÊS');
 
 /* Utilizando o comando COPY para inserção dos dados nas tabelas, os arquivos xxx1 e xxx2 são arquivos tatados de pacientes e exames*/
 COPY pacientes
-FROM '/home/ivan/Área de Trabalho/Lab BD/HC_Janeiro2021/xxx1.csv'
+FROM '/HC_Janeiro2021/xxx1.csv'
 DELIMITER '|'
 csv HEADER;
 /*AAAA = 0 YYYY = 1 -- esse tratamento feito em python */
 
 COPY EXAMES
-FROM '/home/ivan/Área de Trabalho/Lab BD/HC_Janeiro2021/xxx2.csv'
+FROM 'HC_Janeiro2021/xxx2.csv'
 DELIMITER ','
 csv HEADER;
 /*incluido no arquivo o id hospital e substituido os campos com "," para "." - feito esse tratamento em python*/
 
 COPY DESFECHOS
-FROM '/home/ivan/Área de Trabalho/Lab BD/HSL_Janeiro2021/HSL_Desfechos_3.csv'
+FROM '/HSL_Desfechos_3.csv'
 DELIMITER '|'
 csv HEADER;
 /* campo da data quando DDMMAA = null*/
